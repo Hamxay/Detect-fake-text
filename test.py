@@ -11,7 +11,7 @@ row_to_skip = 5371
 # Read the CSV file excluding the problematic row
 data = pd.read_csv("Training_Essay_Data.csv", skiprows=lambda x: x == row_to_skip)
 
-
+data['generated'] = data['generated'].map({1: 0, 0: 1})
 test_texts = data['text']
 test_labels = data['generated']
 predictions = []
